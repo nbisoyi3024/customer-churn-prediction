@@ -1,6 +1,6 @@
 #from sklearn.pipeline import Pipeline
 import os
-from src.preprocessing import preprocess_data, load_and_clean_data
+from src.preprocessing import  load_and_clean_data,preprocess_data
 from src.model_training import get_model_pipelines, train_models
 from src.model_evaluation import evaluate_models
 from src.utils import save_model,load_model
@@ -45,11 +45,13 @@ def run_pipeline():
 
         # Save the pipeline of the best model
         print("Saving the best model....")
-        save_path = f"{MODEL_PATH}/{best_model}.pkl"
+
+        # save the best model as pipeline.pkl
+        save_path = f"{MODEL_PATH}/pipeline.pkl"
         save_model(best_pipeline, save_path)
 
         # Load the best model pipeline
-        best_pipeline = load_model(f"{MODEL_PATH}/SVM.pkl")
+        best_pipeline = load_model(save_path)
 
         print("Pipeline completed successfully!")
 

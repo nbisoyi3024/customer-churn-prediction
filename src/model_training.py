@@ -11,7 +11,7 @@ def get_model_pipelines(X_train):
     """
     Create ML pipeline
     """
-    categorical_cols = ['Geography','Gender','Card Type']
+    categorical_cols = ["Geography", "Gender", "Card Type"]
     numeric_cols = X_train.select_dtypes(exclude=['object']).columns.tolist()
 
     preprocessor = ColumnTransformer(
@@ -22,41 +22,33 @@ def get_model_pipelines(X_train):
     )
     #Full pipeline
     pipelines = {
-        "Random Forest": Pipeline(
-            steps=[
+        "Random Forest": Pipeline([
                 ("preprocessor",preprocessor),
                 ("model", RandomForestClassifier(random_state=42))
-            ]
-        ),
-        "KNN": Pipeline(
-            steps = [
+            ]),
+        "KNN": Pipeline([
                 ("preprocessor",preprocessor),
                 ("model",KNeighborsClassifier(n_neighbors=3))
-            ]
-        ),
-        "SVM" : Pipeline(
-            steps = [
+            ]),
+        "SVM" : Pipeline([
                 ("preprocessor",preprocessor),
                 ("model", SVC(
                        C=0.5,
                        kernel='rbf',
                        gamma='scale',
                        probability=True,
-                       class_weight='balanced'
-              ))
-            ]
-        ),
-        "Gradient Boosting": Pipeline(
-            steps=[
+                       class_weight='balanced')
+                 )
+                 ]),
+        "Gradient Boosting" : Pipeline([
                 ("preprocessor", preprocessor),
                 ("model", GradientBoostingClassifier(
                     n_estimators=200,
                     learning_rate=0.1,
                     max_depth=3
                 ))
-            ]
-        )
-     }
+            ])
+           }
     return pipelines
 
 def train_models(pipelines, X_train, y_train):
@@ -85,4 +77,3 @@ def predict_models(models, X_test):
         predictions[name] = probs
 
     return predictions
-
