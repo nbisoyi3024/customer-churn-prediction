@@ -3,7 +3,7 @@
 ### Project Overview
 Customer churn is a major challenge in the banking sector. This project builds a machine learning system to predict whether a customer will leave the bank based on demographic, behavioral, and account-related features.
 The goal is to help businesses proactively identify high-risk customers and improve retention strategies.
-
+ 
 ### Dataset Overview
 
 **Records**: ~10,000 customers
@@ -57,20 +57,26 @@ Overall churn rate was ~20%, handled using stratified sampling and proper evalua
 ### Numerical Feature Analysis
 
 #### Age vs Churn
+
 ![Age Vs Churn](notebooks/eda_plots/Age_vs_Exited_box.png)
+
 Customers aged 39–51 and those with balance around $110k showed higher churn.
 
 #### Balance
+
 ![Balance Vs Churn](notebooks/eda_plots/Balance_vs_Exited_box.png)
 
 ### Categorical / Binary Features
 #### Geography vs Churn
+
 ![Geography vs Churn](notebooks/eda_plots/Geography_vs_Exited.png)
 
 #### Gender vs Churn
+
 ![Gender vs Churn](notebooks/eda_plots/Gender_vs_Exited.png)
 
 #### ActiveMember Vs Churn
+
 ![Active Member vs Churn](notebooks/eda_plots/IsActiveMember_vs_Exited.png)
 
 
@@ -89,7 +95,9 @@ Inactive customers are much more likely to churn, making this one of the stronge
 Customers with fewer products tend to churn more, but the effect is moderate.
 
 **Correlation Heatmap**
+
 ![Correlation](notebooks/eda_plots/correlation_heatmap.png)
+
 * Age shows a positive correlation with churn
 * IsActiveMember shows a strong negative correlation
 * EstimatedSalary has very weak correlation
