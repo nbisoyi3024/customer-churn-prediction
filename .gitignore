@@ -1,0 +1,5 @@
+ .DS_Store
+ models/.DS_Store
+ notebooks/.DS_Store
+src/__pycache__/
+__pycache__
